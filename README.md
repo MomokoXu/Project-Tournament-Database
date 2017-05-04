@@ -45,9 +45,12 @@ Python is the main development language used to create module that uses Postrgre
 4. Test the whole application using Udacity test style:
     * Run: `python tournament_test.py`
 5. Test the database and application as you like:
-    1. Enter Python: run: `python`
-    2. Import application in python: run: `import tournament`
-    3. Test individual function as you like: eg. run: `tournament.registerPlayer('Momoko')`
+    1. Enter Python:
+    	* run: `python`
+    2. Import application in python:
+    	* run: `import tournament`
+    3. Test individual function as you like:
+    	* eg. run: `tournament.registerPlayer('Momoko')`
 6. To clear the database, you can run step 3 or manually call functions deletePlayers() and deleteMatches().
 
 
