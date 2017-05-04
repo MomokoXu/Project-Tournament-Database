@@ -60,9 +60,9 @@ Python is the main development language used to create module that uses Postrgre
        Player: momoko has been added!
        >>> tournament.registerPlayer("Cherry")
         Player: Cherry has been added! :)
-        >>> tournament.registerPlayer("Piggy")
-        Player: Piggy has been added! :)
         >>> tournament.registerPlayer("Kitten")
+        Player: Piggy has been added! :)
+        >>> tournament.registerPlayer("Puppy")
         Player: Kitten has been added! :)
         ```
 
