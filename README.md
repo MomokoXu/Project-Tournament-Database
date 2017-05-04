@@ -51,7 +51,7 @@ Python is the main development language used to create module that uses Postrgre
     	* run: `import tournament`
     3. Test individual function as you like:
     	* eg. run: `tournament.registerPlayer('Momoko')`
-6. To clear the database, you can run step 3 or manually call functions deletePlayers() and deleteMatches().
+6. To clear the database, you can run step 3 or manually call functions deleteMatches() and then deletePlayers().
 
 
 
