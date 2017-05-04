@@ -1,10 +1,14 @@
 ---
 # Swiss Tournament Planner
+
 ---
+
 ## Introduction
 This project aims to implement a game tournament planner which uses the Swiss system for pairing up players in each round. Players are not eliminated, and each player is paired with another player with the same number of wins, or as close as possible.
 Python is the main development language used to create module that uses PostrgreSQL database to kepp track of players and matches in a game tournament. [More Information](https://docs.google.com/document/d/16IgOm4XprTaKxAa8w02y028oBECOoB1EI1ReddADEeY/pub?embedded=true)
-***
+
+---
+
 ## Prerequisites and Installation
 ### Prerequisites
 1. [Git](https://git-scm.com/doc)
@@ -43,32 +47,84 @@ Python is the main development language used to create module that uses Postrgre
     2. Import application in python: run: `import tournament`
     3. Test individual function as you like: eg. run: `tournament.registerPlayer('Momoko')`
 6. To clear the database, you can run step 3 or manually call functions deletePlayers() and deleteMatches().
+
 ---
+
 ## Functions in ```tournament.py```
 > (From Udacity project Description)
-* registerPlayer(name)
-Adds a player to the tournament by putting an entry in the database. The database should assign an ID number to the player. Different players may have the same names but will receive different ID numbers.
+* registerPlayer(name):
+    * Adds a player to the tournament by putting an entry in the database. The database should assign an ID number to the player. Different players may have the same names but will receive different ID numbers.
+    * Example:
+        ```python
+       >>> tournament.registerPlayer("momoko")
+       Player: momoko has been added!
+       >>> tournament.registerPlayer("Cherry")
+        Player: Cherry has been added! :)
+        >>> tournament.registerPlayer("Piggy")
+        Player: Piggy has been added! :)
+        >>> tournament.registerPlayer("Kitten")
+        Player: Kitten has been added! :)
+        ```
 
-* countPlayers()
-Returns the number of currently registered players. This function should not use the Python len() function; it should have the database count the players.
+* countPlayers():
+    * Returns the number of currently registered players. This function should not use the Python len() function; it should have the database count the players.
+    * Example:
+        ```python
+        >>> tournament.countPlayers()
+        There are 4 players now.
+        ```
 
-* deletePlayers()
-Clear out all the player records from the database.
+* reportMatch(winner, loser):
+    * Stores the outcome of a single match between two players in the database.
+    * Example:
+        ```python
+        >>> tournament.reportMatch(1, 2)
+        Match has been recorded.
+        >>> tournament.reportMatch(3, 4)
+        Match has been recorded.
+        ```
 
-* reportMatch(winner, loser)
-Stores the outcome of a single match between two players in the database.
+* playerStandings():
+    * Returns a list of (id, name, wins, matches) for each player, sorted by the number of wins each player has.
+    * Example:
+        ```python
+        >>> tournament.playerStandings()
+        [(1, 'Momoko', 1L, 1L), (3, 'Kitten', 1L, 1L),
+        (2, 'Cherry', 0L, 1L), (4, 'Puppy', 0L, 1L)]
+        ```
 
-deleteMatches()
-Clear out all the match records from the database.
+* swissPairings():
+    * Given the existing set of registered players and the matches they have played, generates and returns a list of pairings according to the Swiss system. Each pairing is a tuple (id1, name1, id2, name2), giving the ID and name of the paired players. For instance, if there are eight registered players, this function should return four pairings. This function should use playerStandings to find the ranking of players
+    * Example:
+        ```python
+        >>> tournament.swissPairings()
+        [(1, 'Momoko', 3, 'Kitten'), (2, 'Cherry', 4, 'Puppy')]
+        ```
 
-* playerStandings()
-Returns a list of (id, name, wins, matches) for each player, sorted by the number of wins each player has.
+* deleteMatches():
+    * Clear out all the match records from the database.
+    * Example:
+        ```python
+        >>> tournament.deleteMatches()
+        All matches have been deleted!
+        ```
 
-* swissPairings()
-Given the existing set of registered players and the matches they have played, generates and returns a list of pairings according to the Swiss system. Each pairing is a tuple (id1, name1, id2, name2), giving the ID and name of the paired players. For instance, if there are eight registered players, this function should return four pairings. This function should use playerStandings to find the ranking of players.
+* deletePlayers():
+    * Clear out all the player records from the database.
+    * Example:
+        ```python
+        >>> tournament.deletePlayers()
+        All players have been removed!
+        ```
 ---
+## Future work
+This project currently only support single tournament, in the future it is supposed to be extended to support multiple tournaments.
+
+---
+
 ## Author
 [Yingtao Xu](https://github.com/MomokoXu)
 
+---
 ## Copyright
 This is a project for practicing skills in databses and backend courses not for any business use. Some templates and file description are used from [Udacity FSND program](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd004). Please contact me if you think it violates your rights.
