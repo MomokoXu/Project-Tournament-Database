@@ -72,7 +72,7 @@ Python is the main development language used to create module that uses Postrgre
         ```
 
 * countPlayers():
-    * Returns the number of currently registered players. This function should not use the Python len() function; it should have the database count the players.
+    * Returns the number of currently registered players.
     * Example:
         ```python
         >>> tournament.countPlayers()
@@ -99,7 +99,7 @@ Python is the main development language used to create module that uses Postrgre
         ```
 
 * swissPairings():
-    * Given the existing set of registered players and the matches they have played, generates and returns a list of pairings according to the Swiss system. Each pairing is a tuple (id1, name1, id2, name2), giving the ID and name of the paired players. For instance, if there are eight registered players, this function should return four pairings. This function should use playerStandings to find the ranking of players
+    * Given the existing set of registered players and the matches they have played, generates and returns a list of pairings according to the Swiss system. Each pairing is a tuple (id1, name1, id2, name2), giving the ID and name of the paired players. For instance, if there are eight registered players, this function will return four pairings. This function uses playerStandings to find the ranking of players
     * Example:
         ```python
         >>> tournament.swissPairings()
